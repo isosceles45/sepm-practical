@@ -13,12 +13,16 @@ pipeline {
         }
         stage('Build Frontend') {
             steps {
-                echo "Building frontend..."
+                script {
+                    docker.build('frontend-app:latest', '.')
+                }
             }
         }
         stage('Build Backend') {
             steps {
-                echo "Building backend..."
+                script {
+                    docker.build('backend-api:v1.0', '.')
+                }
             }
         }
         stage('Test') {
@@ -28,9 +32,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo "Deployed!"
+                echon "Deployed!"
             }
         }
     }
 }
-
