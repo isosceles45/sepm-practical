@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echon "Deployed!"
+                echo "Deployed!"
             }
         }
     }
